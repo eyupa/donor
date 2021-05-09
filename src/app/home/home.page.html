@@ -1,20 +1,46 @@
-<ion-header [translucent]="true">
+<ion-header>
+ <ion-item color="primary"><ion-button color="danger" (click)="logout()"></ion-button> ÇIKIŞ</ion-item>  
+</ion-header><ion-content [fullscreen]="true">
+  <ion-card color="primary"*ngFor='let kayit of kayitlar'>
+  <ion-card-header  >
+    <ion-card-subtitle></ion-card-subtitle>
+    <ion-card-title> {{kayit.payload.doc.data().il}}'de {{kayit.payload.doc.data().grubu}} </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{kayit.payload.doc.data().tel}}
+  </ion-card-content>
+  <ion-card-content>
+    {{kayit.payload.doc.data().aciklama}}
+  </ion-card-content>
+  <ion-card-content>
+    {{kayit.payload.doc.data().adi}}
+  </ion-card-content>
+  <ion-card-content>
+   ilan Tarihi: {{kayit.payload.doc.data().olusturma * 1000 | date:'dd:MM:yyyy HH:mm:ss'}} 
+  </ion-card-content>
+  <ion-button color="success" (click)="kayitGuncelle(kayit.payload.doc.id)">Düzenle</ion-button>
+  <ion-button color="danger" (click)="presentAlertConfirm(kayit.payload.doc.id)">SIL</ion-button>
+</ion-card>
+<ion-label></ion-label>
+
+  <!-- <ion-list *ngFor='let kayit of kayitlar'>
+    <ion-item>
+      <ion-label> {{kayit.payload.doc.data().il}}'de {{kayit.payload.doc.data().grubu}} </ion-label>
+    </ion-item>
+   
+  </ion-list>
+
+    <ion-item color="success"> Username: {{kullanici.displayName}}</ion-item>  -->
+
+
+<ion-footer>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-footer>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-fab-button (click)="presentAlertPrompt()" color="secondary">
+    <ion-icon name="water" color="danger"></ion-icon>
+  </ion-fab-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+</ion-fab>

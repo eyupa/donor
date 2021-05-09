@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kan Aranıyor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngFor='let kayit of kayitlar'>
+    <ion-item>
+      <ion-label> {{kayit.payload.doc.data().il}}'de {{kayit.payload.doc.data().grubu}} aranıyor!</ion-label>
+    </ion-item>
+   
+  </ion-list>
+
+
+</ion-content>
+<ion-fab vertical="center" horizontal="end" slot="fixed" routerLink="/login">
+  <ion-fab-button routerLink="/login">
+    <ion-icon name="enter-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-footer>
+  iletişim bilgileri için oturum açınız
+</ion-footer>

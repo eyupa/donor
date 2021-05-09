@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "donor-b3e8f": {
+      "hosting": {
+        "app": [
+          "donor-b3e8f"
+        ]
+      }
+    }
+  }
+}
